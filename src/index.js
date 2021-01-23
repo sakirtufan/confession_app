@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NoMatch from './components/NoMatch'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
+import 'semantic-ui-css/semantic.min.css'
 
 const rrfProps = {
   firebase,
@@ -25,7 +26,7 @@ const Root = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={App}/>
+        <Route exact path="/" component={App}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={SignUp}/>
         <Route component={NoMatch}/>

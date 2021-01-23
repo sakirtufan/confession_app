@@ -1,20 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import configureStore from './redux/reducers/configureStore'
+import store from './redux/reducers/store';
 import { Provider } from 'react-redux';
+import firebase from './firebase';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import { useDispatch, useSelector } from 'react-redux';
 
-const store = configureStore();
+const rrfProps = {
+  firebase,
+  config: {
+    userProfile: 'users',
+    enableLogging: false,
+  },
+  dispatch: store.dispatch,
+};
+
+const Root = () => {
+  const dispatch = useDispatch();
+  return <div></div>;
+};
+
+export default Root;
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <App />
+      </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-
-reportWebVitals();

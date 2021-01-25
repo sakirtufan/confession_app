@@ -33,7 +33,7 @@ const SignUp = () => {
       <GridColumn className={styles.width}>
         <Header as="h2" color="violet" icon>
           <Icon name="comment alternate outline" />
-          {"Register to the confessor"}
+          {"Sign up for free and experience Confessor today"}
         </Header>
 
         <Form>
@@ -103,13 +103,13 @@ const SignUp = () => {
             </Form.Group>
           </Segment>
           <Button color="green" fluid size="large" onClick={handleSubmit}>
-            Register
+            CREATE FREE ACCOUNT
           </Button>
         </Form>
         {errors.length > 0 && <Message error>{displayErrors()}</Message>}
         <Message>
           <Icon name="help" />
-          Do you already have an account? <Link to="/login">Login here</Link>
+          Already have an account? <Link to="/login"><u>Log In</u></Link>
         </Message>
       </GridColumn>
     </Grid>
